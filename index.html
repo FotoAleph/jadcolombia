@@ -13,6 +13,19 @@
             background-color: #003953;
             overflow: hidden;
         }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        nav a {
+            padding: 2rem;
+            background: transparent;
+            text-decoration: none;
+            color: #00e4a5;
+        }
         .header {
             width: 100%;
             display: grid;
@@ -52,6 +65,14 @@
     </style>
 </head>
 <body>
+    <nav>
+        <a href="/">
+            Inicio
+        </a>
+        <a href="https://jadcolombia.com:2096/">
+            Ingreso
+        </a>
+    </nav>
 
     <div class="header">
         <img src="./img/01.jpg" alt="JAD Colombia" title="JAD Colombia">
