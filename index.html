@@ -4,91 +4,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAD Colombia</title>
+    <meta name="description" content="Centro de Soluciones Financieras y Tecnológicas JAD - Asesoría jurídica integral para recuperación de depósitos judiciales en Colombia.">
+    <title>CENTRO DE SOLUCIONES FINANCIERAS Y TECNOLOGICAS JAD</title>
     <link rel="shortcut icon" href="./img/icon.png" type="image/png">
     <style>
         body {
-            font-family: sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            background-color: #003953;
-            overflow: hidden;
+            padding: 0;
+            background: linear-gradient(135deg, #f4f4f4 0%, #e0f7fa 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #003953 0%, #00415d 100%);
+            color: #00e4a5;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 300;
         }
         nav {
+            background-color: #00415d;
+            padding: 1rem;
             display: flex;
-            flex-wrap: wrap;
-            width: 100%;
-            justify-content: space-between;
-        }
-
-        nav a {
-            padding: 2rem;
-            background: transparent;
-            text-decoration: none;
-            color: #00e4a5;
-        }
-        .header {
-            width: 100%;
-            display: grid;
             justify-content: center;
-            align-items: center;
-            height: 30rem;         
+            flex-wrap: wrap;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: #00e4a5;
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        nav a:hover {
+            background-color: #00e4a5;
+            color: #003953;
+            transform: translateY(-2px);
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .panel {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
         }
-        .header img {
-            margin: 0 ;       
-            width: 24rem;
-            max-width: 95%;
-            height:auto;
-            padding: 0.3rem;
-            object-fit: cover;
+        .panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
         }
-        .footer {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-           
-            background-color: #00415d;
+        .panel h2, .panel h3 {
+            color: #003953;
+            margin-top: 0;
+        }
+        .panel h2 {
+            font-size: 1.8rem;
+            border-bottom: 3px solid #00e4a5;
+            padding-bottom: 0.5rem;
+        }
+        .highlight {
+            background-color: #e0f7fa;
+            padding: 1.5rem;
+            border-left: 5px solid #00e4a5;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .container-full {
+            width: 100dvw;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00e4a5 0%, #00415d 100%);
             color: white;
-      
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 0.5rem 0;
+            transition: all 0.3s ease;
+            font-weight: 500;
             text-align: center;
         }
-        .footer p {
-            margin: 5px 0;
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        .footer a {
-            text-decoration: none;
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        ul li:before {
+            content: "✔";
+            color: #00e4a5;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        ol {
+            counter-reset: step-counter;
+        }
+        ol li {
+            counter-increment: step-counter;
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+        ol li:before {
+            content: counter(step-counter) "️⃣";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        footer {
+            background: linear-gradient(135deg, #003953 0%, #00415d 100%);
             color: white;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            font-size: 200%;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+        footer a {
+            color: #00e4a5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                margin: 0.5rem 0;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>CENTRO DE SOLUCIONES FINANCIERAS Y TECNOLOGICAS JAD</h1>
+    </header>
     <nav>
-        <a href="/">
-            Inicio
-        </a>
-        <a href="https://jadcolombia.com:2096/">
-            Ingreso
-        </a>
+        <a href="#inicio">INICIO</a>
+        <a href="#nosotros">NOSOTROS</a>
+        <a href="#recuperacion">RECUPERACIÓN</a>
+        <a href="#contacto">CONTÁCTENOS</a>
     </nav>
+        <header class="container-full" id="inicio">
+            <h2>
+              Bienvenido al Centro de Soluciones Financieras y Tecnológicas JAD
+            </h2>
+            <p>Asesoría jurídica integral y profesional adaptada a las necesidades específicas.</p>
+        </header>
+    <div class="grid-container">
 
-    <div class="header">
-        <img src="./img/01.jpg" alt="JAD Colombia" title="JAD Colombia">
+
+        <section class="panel" id="nosotros">
+            <h3>Gestión y recuperación de títulos judiciales</h3>
+                <p>Contamos con un equipo profesional con sólida experiencia en la identificación, gestión y recuperación de títulos judiciales. Operamos con criterios técnicos, control riguroso del proceso y enfoque en resultados, garantizando seguridad jurídica y eficiencia en cada etapa.</p>
+            </section>
+
+        <section class="panel" id="recuperacion">
+            <h2>RECUPERAMOS SU DEPÓSITO JUDICIAL NO RECLAMADO</h2>
+            <p>¿Tiene dinero retenido en un juzgado y no lo ha reclamado?</p>
+            <p>Miles de personas en Colombia, sin saberlo tienen títulos o depósitos judiciales pendientes de cobro por procesos civiles, laborales, ejecutivos, alimentos, embargos u otros trámites judiciales.</p>
+            <p>En JAD le ayudamos a:</p>
+            <ul>
+                <li>Verificar si tiene depósitos judiciales a su nombre que puedan ser reclamados</li>
+                <li>Identificar el juzgado y los procesos requeridos para la reclamación de estos recursos</li>
+                <li>Gestionar la documentación necesaria para tramitar la devolución de estos recursos.</li>
+                <li>Realizar los trámites jurídicos requeridos para la recuperación de los depósitos judiciales y el abono a su cuenta bancaria.</li>
+            </ul>
+        </section>
+    </div>
+    <div class="grid-container">
+            <div class="highlight">
+                <h3>¿Qué es un Depósito Judicial?</h3>
+                <p>Un depósito judicial es una cantidad de dinero que por disposiciones legales vigentes debe consignarse a orden de los despachos de la rama judicial como garantía de un proceso judicial, los cuales se deben consignar en los bancos legalmente autorizados para tal efecto.</p>
+                <p>Estos recursos pueden corresponder a:</p>
+                <ul>
+                    <li>Embargos</li>
+                    <li>Indemnizaciones</li>
+                    <li>Liquidaciones</li>
+                </ul>
+                <p>Muchos de estos recursos permanecen años sin ser reclamados. Antes de su prescripción pueden ser reclamados y transferidos al beneficiario.</p>
+            </div>
+            <div class="highlight">
+                <h3>🔎 ¿Cómo Funciona Nuestro Servicio?</h3>
+                <ol>
+                    <li>Consulta Inicial: Verificamos si existen depósitos judiciales asociados a su número de identificación.</li>
+                    <li>Análisis Jurídico: Revisamos el estado del proceso judicial y determinamos la viabilidad de recuperación.</li>
+                    <li>Gestión Documental: Efectuamos un contrato de prestación de servicios y remitimos la solicitud de entrega de depósitos.</li>
+                    <li>Recuperación del Dinero: Realizamos el seguimiento hasta que el dinero sea entregado directamente en la cuenta del beneficiario.</li>
+                </ol>
+            </div>
+            <div class="highlight">
+                <h3>💼 ¿Por Qué Elegirnos?</h3>
+                <ul>
+                    <li>Confidencialidad absoluta</li>
+                    <li>Transparencia en honorarios</li>
+                    <li>Acompañamiento personalizado</li>
+                    <li>Experiencia en trámites judiciales</li>
+                    <li>Pago de honorarios contra resultado, directamente fraccionado por el despacho.</li>
+                </ul>
+            </div>
+            <div class="highlight">
+                <h3>📋 Requisitos Generales</h3>
+                <p>Para iniciar el proceso normalmente se requiere:</p>
+                <ul>
+                    <li>Copia de cédula del beneficiario</li>
+                    <li>Poder firmado por el beneficiario</li>
+                    <li>Contrato de mandato a nombre de JAD como asesor del proceso.</li>
+                    <li>Certificación bancaria actualizada</li>
+                </ul>
+            </div>
+            <div class="highlight">
+                <h3>❓ Preguntas Frecuentes</h3>
+                <p><strong>¿Cuánto cuesta el servicio?</strong><br>Trabajamos bajo modalidad de honorarios del 30% del dinero recuperado. El pago se realiza únicamente si el dinero es recuperado, se efectúa mediante fraccionamiento del título y se solicita que el Juzgado realice directamente el 70% del pago al mandante (beneficiario del depósito) y el restante 30% al mandatario (JAD como asesor encargado de gestionar la devolución del depósito).</p>
+                <p><strong>¿Cuánto tarda el proceso?</strong><br>Depende del juzgado y del estado del proceso. No se puede determinar el tiempo dado que cada Juzgado maneja sus propios procedimientos.</p>
+                <p><strong>¿El dinero puede perderse?</strong><br>Algunos depósitos pueden entrar en procesos de prescripción si no se reclaman oportunamente. Por eso es importante verificar y realizar los trámites respectivos a tiempo.</p>
+            </div>
+            <div class="highlight">
+                <h3>⚖️ Transparencia y Legalidad</h3>
+                <p>Nuestro servicio se basa en:</p>
+                <ul>
+                    <li>Revisión pública de información judicial</li>
+                    <li>Gestión formal ante juzgados</li>
+                    <li>Trámite conforme a la normativa colombiana</li>
+                </ul>
+                <p><strong>NO SOLICITAMOS PAGOS ANTICIPADOS EL PAGO ES UNA VEZ EL JUZGADO CORRESPONDIENTE ORDENE LA DEVOLUCIÒN DEL DINERO.</strong></p>
+            </div>
+        </section>
+
+        <section class="panel" id="contacto">
+            <h2>📞 Contáctenos Hoy</h2>
+            <p>¿Quiere saber si tiene dinero sin reclamar?</p>
+            <p>📲 WhatsApp: [Tu número aquí]</p>
+            <p>📧 Correo: [Tu correo aquí]</p>
+            <p>📍 Atención en Bogotá y todo Colombia</p>
+            <a href="#" class="btn">👉 CONSULTAR AHORA SI TENGO DEPÓSITOS JUDICIALES</a>
+        </section>
+
+
     </div>
 
-    <div class="footer">
-        <p>
-            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 -960 960 960" width="2rem" fill="#fff"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"/></svg>
-             <a href="tel:+573173671746">+57 317 367 1746</a> 
-        </p>
-              <p>
-            <svg xmlns="http://www.w3.org/2000/svg" height="2rem" viewBox="0 -960 960 960" width="2rem" fill="#fff"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"/></svg>
-             <a href="tel:+573209163784">+57 320 916 3784</a> 
-        </p>
-        
-
-
+    <footer>
+            <section class="panel">
+            <h2>🔐 Aviso Legal</h2>
+            <p>Este sitio ofrece servicios de trámite ante los despachos judiciales. No somos entidad bancaria, no somos el juzgado, ni hacemos parte de la Rama Judicial; actuamos como intermediarios en la orientación y gestión de trámites para la reclamación de títulos conforme a la ley colombiana.</p>
+            <p>Link a Publicación: <a href="https://www.ramajudicial.gov.co/web/unidad-de-presupuesto/depositos-judiciales-ley-1743" target="_blank">Normatividad vigente en Depósitos Judiciales.</a></p>
+            <p>Link a Publicación: <a href="https://legalplanners.co/blog/f/los-dep%C3%B3sitos-judiciales-en-colombia-y-su-prescripci%C3%B3n" target="_blank">Los depósitos judiciales en Colombia y su prescripción</a></p>
+            <p>Link a Publicación: <a href="https://www.bancoagrario.gov.co/depositos-judiciales" target="_blank">Depósitos Judiciales BANCO AGRARIO DE COLOMBIA</a></p>
+        </section>
+        <p>Centro de Soluciones Financieras y Tecnológicas JAD</p>
+        <p>📲 <a href="tel:+573173671746">+57 317 367 1746</a> | <a href="tel:+573209163784">+57 320 916 3784</a></p>
+    </footer>
 </body>
 </html>
