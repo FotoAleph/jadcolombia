@@ -1,180 +1,512 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Centro de Soluciones Financieras y Tecnológicas JAD - RECUPERAMOS SU DEPÓSITO JUDICIAL NO RECLAMADO">
-    <title>CENTRO DE SOLUCIONES FINANCIERAS Y TECNOLOGICAS JAD</title>
-    <link rel="shortcut icon" href="./img/icon.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
-</head>
+    
+    <!-- 1. TÍTULO OPTIMIZADO PARA SEO -->
+    <title>Recuperación de Depósitos Judiciales en Colombia | JAD Asesores</title>
+    
+    <!-- 2. META DESCRIPCIÓN -->
+    <meta name="description" content="¿Tiene dinero retenido en un juzgado? En JAD gestionamos la recuperación de sus depósitos y títulos judiciales en Colombia sin pagos anticipados. Consúltenos hoy.">
+    
+    <!-- 3. ETIQUETAS OPEN GRAPH (Redes Sociales) -->
+    <meta property="og:title" content="Recuperación de Depósitos Judiciales | JAD">
+    <meta property="og:description" content="Gestionamos la devolución de su dinero retenido en juzgados de Colombia. Honorarios a contra resultado.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.tudominio.com">
+    <meta property="og:image" content="https://www.tudominio.com/imagen-social.jpg"> 
+    
+    <!-- 4. CANONICAL URL -->
+    <link rel="canonical" href="https://www.tudominio.com/">
 
-<body>
-    <header>
-        <img src="./img/icon-trasparente.png" alt="JAD">
-        <h1>CENTRO DE SOLUCIONES FINANCIERAS Y TECNOLOGICAS JAD</h1>
-    </header>
-    <nav>
-        <div class="nav-bar">
-            <a href="#inicio">INICIO</a>
-            <a href="#nosotros">NOSOTROS</a>
-            <a href="#recuperacion">RECUPERACIÓN</a>
-            <a href="#contacto">CONTÁCTENOS</a>
-        </div>
-        <div class="nav-loging">
-            <a href="https://jadcolombia.com/login">Ingresar</a>
+    <!-- 5. FAVICON (Icono de balanza como placeholder) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Montserrat para títulos (moderno), Inter para texto (legibilidad) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuración Tailwind y CSS Personalizado -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00e2a2',    // El color principal solicitado
+                        primaryDark: '#00c18a',
+                        darkBg: '#0a0a0a',     // Negro neutro
+                        cardDark: '#171717',   // Gris muy oscuro para tarjetas
+                        lightBg: '#ffffff',    // Blanco puro
+                        cardLight: '#f3f4f6'   // Gris muy claro para tarjetas
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Gradientes Personalizados */
+        .text-gradient {
+            background: linear-gradient(135deg, #00e2a2 0%, #009870 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #00e2a2 0%, #00c18a 100%);
+        }
+
+        /* Animaciones de Scroll (Revelado) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos para el FAQ (Acordeón nativo) */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-darkBg/90 backdrop-blur-md border-b border-white/10" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="https://jadcolombia.com/login" class="text-2xl font-heading font-black tracking-tighter text-white ">
+             <div class="flex gap-2 items-center"> <img class="w-12" src="./img/icon-trasparente.png" alt="JAD"> <p>JAD</p> </div> 
+            </a>
+            <div class="hidden md:flex md:items-center space-x-8 text-sm font-medium">
+                <a href="#inicio" class="hover:text-primary transition-colors">Inicio</a>
+                <a href="#nosotros" class="hover:text-primary transition-colors">Nosotros</a>
+                <a href="#servicios" class="hover:text-primary transition-colors">Servicios</a>
+                <a href="#faq" class="hover:text-primary transition-colors">FAQ</a>
+                <a href="https://wa.me/573173671746" class="text-darkBg bg-primary px-5 py-2 rounded-full hover:bg-white transition-all shadow-[0_0_15px_rgba(0,226,162,0.4)]">Consultar Ahora</a>
+            </div>
         </div>
     </nav>
-    <header class="container-full header-inicio" id="inicio">
-        <h2>
-            Bienvenido al Centro de Soluciones Financieras y Tecnológicas JAD
-        </h2>
-        <p>Asesoría jurídica integral y profesional adaptada a las necesidades específicas.</p>
-    </header>
-    <div class="grid-container">
 
-
-        <section class="panel nosotros" id="nosotros">
-            <h2>Gestión y recuperación de títulos judiciales</h2>
-            <img src="./img/person-1.png" alt="JAD" class="img-panel">
-            <p>Contamos con un equipo profesional con sólida experiencia en la identificación, gestión y recuperación de
-                títulos judiciales. Operamos con criterios técnicos, control riguroso del proceso y enfoque en
-                resultados, garantizando seguridad jurídica y eficiencia en cada etapa.</p>
-            <p>Miles de personas en Colombia, sin saberlo tienen títulos o depósitos judiciales pendientes de cobro por
-                procesos civiles, laborales, ejecutivos, alimentos, embargos u otros trámites judiciales.</p>
-
-        </section>
-
-        <section class="panel" id="contacto">
-            <h2>Contáctenos Hoy</h2>
-
-            <p>¿Quiere saber si tiene dinero sin reclamar?</p>
-            <a class="bg-gray" href="tel:3173671746"> 📞 317 367 1746</a>
-            <a class="bg-gray" href="tel:3209163784"> 📞 320 916 3784</a>
-            <a class="bg-gray" href="mailto:consultas"> 📧 consultas@jadcololombia.com</a>
-            <p>Agenda tu cita con uno de nuestros asesores </p>
-            <div class="container-btn">
-                <a href="https://wa.me/573173671746" class="btn"> Agenda tu cita</a>
+    <!-- 1. HERO SECTION (Fondo Negro) -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Elemento de fondo decorativo -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] -z-10"></div>
+        
+        <div class="container mx-auto px-6 text-center z-10 reveal">
+            <div class="inline-block px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-semibold mb-6 tracking-wide">
+                Centro de Soluciones JAD
             </div>
-        </section>
-
-
-
-        <section class="panel" id="recuperacion">
-            <h2>RECUPERAMOS SU DEPÓSITO JUDICIAL NO RECLAMADO</h2>
-            <p>¿Tiene dinero retenido en un juzgado y no lo ha reclamado?</p>
-            <p>En JAD le ayudamos a:</p>
-            <ul>
-                <li>Verificar si tiene depósitos judiciales a su nombre que puedan ser reclamados</li>
-                <li>Identificar el juzgado y los procesos requeridos para la reclamación de estos recursos</li>
-                <li>Gestionar la documentación necesaria para tramitar la devolución de estos recursos.</li>
-                <li>Realizar los trámites jurídicos requeridos para la recuperación de los depósitos judiciales y el
-                    abono a su cuenta bancaria.</li>
-            </ul>
-        </section>
-    </div>
-    <div class="grid-container">
-        <div class="panel">
-            <h3>¿Qué es un Depósito Judicial?</h3>
-            <p>Un depósito judicial es una cantidad de dinero que por disposiciones legales vigentes debe consignarse a
-                orden de los despachos de la rama judicial como garantía de un proceso judicial, los cuales se deben
-                consignar en los bancos legalmente autorizados para tal efecto.</p>
-            <p>Estos recursos pueden corresponder a:</p>
-            <ul>
-                <li>Embargos</li>
-                <li>Indemnizaciones</li>
-                <li>Liquidaciones</li>
-            </ul>
-            <p>Muchos de estos recursos permanecen años sin ser reclamados. Antes de su prescripción pueden ser
-                reclamados y transferidos al beneficiario.</p>
+            <!-- H1 OPTIMIZADO PARA SEO -->
+            <h1 class="text-5xl md:text-7xl font-heading font-black mb-6 leading-tight">
+                Gestión y Recuperación de <br>
+                <span class="text-gradient">Depósitos Judiciales</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
+                Adaptamos nuestra experiencia legal a sus necesidades específicas. Asesoría jurídica integral para reclamar su dinero retenido en juzgados de Colombia.
+            </p>
+            <a href="https://wa.me/573173671746" class="inline-flex items-center gap-3 bg-gradient-primary text-darkBg font-bold text-lg px-8 py-4 rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_10px_30px_rgba(0,226,162,0.3)]">
+                Recuperar mi depósito <i class="fa-solid fa-arrow-right"></i>
+            </a>
         </div>
-        <div class="panel">
-            <h3>🔎 ¿Cómo Funciona Nuestro Servicio?</h3>
-            <ol>
-                <li>Consulta Inicial: Verificamos si existen depósitos judiciales asociados a su número de
-                    identificación.</li>
-                <li>Análisis Jurídico: Revisamos el estado del proceso judicial y determinamos la viabilidad de
-                    recuperación.</li>
-                <li>Gestión Documental: Efectuamos un contrato de prestación de servicios y remitimos la solicitud de
-                    entrega de depósitos.</li>
-                <li>Recuperación del Dinero: Realizamos el seguimiento hasta que el dinero sea entregado directamente en
-                    la cuenta del beneficiario.</li>
-            </ol>
-        </div>
-        <div class="highlight">
-            <h3>💼 ¿Por Qué Elegirnos?</h3>
-            <ul>
-                <li>Confidencialidad absoluta</li>
-                <li>Transparencia en honorarios</li>
-                <li>Acompañamiento personalizado</li>
-                <li>Experiencia en trámites judiciales</li>
-                <li>Pago de honorarios contra resultado, directamente fraccionado por el despacho.</li>
-            </ul>
-        </div>
-        <div class="highlight">
-            <h3>📋 Requisitos Generales</h3>
-            <p>Para iniciar el proceso normalmente se requiere:</p>
-            <ul>
-                <li>Copia de cédula del beneficiario</li>
-                <li>Poder firmado por el beneficiario</li>
-                <li>Contrato de mandato a nombre de JAD como asesor del proceso.</li>
-                <li>Certificación bancaria actualizada</li>
-            </ul>
-        </div>
-        <div class="highlight">
-            <h3>❓ Preguntas Frecuentes</h3>
-            <details>
-                <summary><strong>¿Cuánto cuesta el servicio?</strong></summary>
-                <p>Trabajamos bajo modalidad de honorarios del 30% del dinero recuperado. El pago se realiza únicamente
-                    si el dinero es recuperado, se efectúa mediante fraccionamiento del título y se solicita que el
-                    Juzgado realice directamente el 70% del pago al mandante (beneficiario del depósito) y el restante
-                    30% al mandatario (JAD como asesor encargado de gestionar la devolución del depósito).</p>
-            </details>
-            <details>
-                <summary><strong>¿Cuánto tarda el proceso?</strong></summary>
-                <p>Depende del juzgado y del estado del proceso. No se puede determinar el tiempo dado que cada Juzgado
-                    maneja sus propios procedimientos.</p>
-            </details>
-            <details>
-                <summary><strong>¿El dinero puede perderse?</strong></summary>
-                <p>Algunos depósitos pueden entrar en procesos de prescripción si no se reclaman oportunamente. Por eso
-                    es importante verificar y realizar los trámites respectivos a tiempo.</p>
-            </details>
-        </div>
-        <div class="highlight">
-            <h3>⚖️ Transparencia y Legalidad</h3>
-            <p>Nuestro servicio se basa en:</p>
-            <ul>
-                <li>Revisión pública de información judicial</li>
-                <li>Gestión formal ante juzgados</li>
-                <li>Trámite conforme a la normativa colombiana</li>
-            </ul>
-            <p><strong>NO SOLICITAMOS PAGOS ANTICIPADOS EL PAGO ES UNA VEZ EL JUZGADO CORRESPONDIENTE ORDENE LA
-                    DEVOLUCIÒN DEL DINERO.</strong></p>
-        </div>
-    </div> <!-- Cierra el grid-container -->
-
-    <section class="container-full aviso-legal">
-        <h2>🔐 Aviso Legal</h2>
-        <p>Este sitio ofrece servicios de trámite ante los despachos judiciales. No somos entidad bancaria, no somos
-            el juzgado, ni hacemos parte de la Rama Judicial; actuamos como intermediarios en la orientación y
-            gestión de trámites para la reclamación de títulos conforme a la ley colombiana.</p>
-        <p>Link a Publicación: <a
-                href="https://www.ramajudicial.gov.co/web/unidad-de-presupuesto/depositos-judiciales-ley-1743"
-                target="_blank" rel="noopener">Normatividad vigente en Depósitos Judiciales.</a></p>
-        <p>Link a Publicación: <a
-                href="https://legalplanners.co/blog/f/los-dep%C3%B3sitos-judiciales-en-colombia-y-su-prescripci%C3%B3n"
-                target="_blank" rel="noopener">Los depósitos judiciales en Colombia y su prescripción</a></p>
-        <p>Link a Publicación: <a href="https://www.bancoagrario.gov.co/depositos-judiciales" target="_blank"
-                rel="noopener">Depósitos Judiciales BANCO AGRARIO DE COLOMBIA</a></p>
     </section>
 
-    <footer>
-        <p>Centro de Soluciones Financieras y Tecnológicas JAD</p>
-        <p>📲 <a href="tel:+573173671746">+57 317 367 1746</a> | <a href="tel:+573209163784">+57 320 916 3784</a></p>
-    </footer>
-</body>
+    <!-- 2. NOSOTROS (Fondo Blanco) -->
+    <section id="nosotros" class="py-24 bg-lightBg text-darkBg">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <h2 class="text-4xl font-heading font-black mb-6">Equipo Experto en <span class="text-primary">Títulos Judiciales</span></h2>
+                    <p class="text-gray-600 mb-8 text-lg">
+                        Contamos con un equipo profesional altamente cualificado con años de experiencia en la identificación, gestión y recuperación de títulos judiciales.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div class="p-6 bg-cardLight rounded-2xl text-center hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-primary/30">
+                            <div class="w-14 h-14 mx-auto bg-darkBg text-primary rounded-xl flex items-center justify-center text-2xl mb-4 shadow-lg">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </div>
+                            <h3 class="font-bold">Identificación</h3>
+                        </div>
+                        <div class="p-6 bg-cardLight rounded-2xl text-center hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-primary/30">
+                            <div class="w-14 h-14 mx-auto bg-darkBg text-primary rounded-xl flex items-center justify-center text-2xl mb-4 shadow-lg">
+                                <i class="fa-solid fa-file-signature"></i>
+                            </div>
+                            <h3 class="font-bold">Gestión</h3>
+                        </div>
+                        <div class="p-6 bg-cardLight rounded-2xl text-center hover:-translate-y-2 transition-transform duration-300 border border-transparent hover:border-primary/30">
+                            <div class="w-14 h-14 mx-auto bg-darkBg text-primary rounded-xl flex items-center justify-center text-2xl mb-4 shadow-lg">
+                                <i class="fa-solid fa-hand-holding-dollar"></i>
+                            </div>
+                            <h3 class="font-bold">Recuperación</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative reveal">
+                    <!-- Representación gráfica en lugar de imagen -->
+                    <div class="aspect-square rounded-3xl bg-darkBg p-8 flex flex-col justify-center relative overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[60px]"></div>
+                        <i class="fa-solid fa-scale-balanced text-9xl text-primary/20 absolute -bottom-10 -right-10"></i>
+                        <h3 class="text-3xl font-heading font-bold text-white mb-4 relative z-10">Más que asesores,<br>somos sus <span class="text-primary">aliados estratégicos</span>.</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- 3. SERVICIO PRINCIPAL (Fondo Negro) -->
+    <section id="servicios" class="py-24 bg-darkBg relative border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-heading font-black mb-6">¿Tiene dinero retenido en un juzgado y <span class="text-gradient">no lo ha reclamado?</span></h2>
+                <p class="text-gray-400 text-lg">
+                    Miles de personas en Colombia tienen depósitos judiciales pendientes de cobro por procesos civiles, laborales, ejecutivos, alimentos o embargos. En JAD le ayudamos a:
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6 reveal">
+                <!-- Tarjetas de Ayuda -->
+                <div class="bg-cardDark p-8 rounded-3xl border border-white/5 hover:border-primary/50 transition-colors group">
+                    <i class="fa-regular fa-circle-check text-4xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-3">Verificar</h3>
+                    <p class="text-gray-400 text-sm">Consultamos si tiene depósitos judiciales a su nombre aptos para ser reclamados.</p>
+                </div>
+                <div class="bg-cardDark p-8 rounded-3xl border border-white/5 hover:border-primary/50 transition-colors group">
+                    <i class="fa-solid fa-building-columns text-4xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-3">Identificar</h3>
+                    <p class="text-gray-400 text-sm">Ubicamos el juzgado y los procesos exactos requeridos para la reclamación.</p>
+                </div>
+                <div class="bg-cardDark p-8 rounded-3xl border border-white/5 hover:border-primary/50 transition-colors group">
+                    <i class="fa-regular fa-folder-open text-4xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-3">Gestionar</h3>
+                    <p class="text-gray-400 text-sm">Preparamos toda la documentación necesaria para tramitar la devolución de estos recursos.</p>
+                </div>
+                <div class="bg-cardDark p-8 rounded-3xl border border-white/5 hover:border-primary/50 transition-colors group">
+                    <i class="fa-solid fa-money-bill-transfer text-4xl text-primary mb-6 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-3">Realizar</h3>
+                    <p class="text-gray-400 text-sm">Ejecutamos los trámites hasta la recuperación del depósito y abono a su cuenta bancaria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. QUE ES & REQUISITOS (Fondo Blanco) -->
+    <section class="py-24 bg-lightBg text-darkBg">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                <!-- Qué es -->
+                <div class="reveal">
+                    <h2 class="text-3xl font-heading font-black mb-6">¿Qué es un <span class="text-primary">Depósito Judicial?</span></h2>
+                    <p class="text-gray-600 mb-8">
+                        Un depósito judicial es una cantidad de dinero que por disposiciones legales vigentes debe consignarse a orden de los despachos de la rama judicial como garantía de un proceso judicial en bancos autorizados.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                            <div class="bg-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center"><i class="fa-solid fa-gavel"></i></div>
+                            <span class="font-bold">Embargos</span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                            <div class="bg-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center"><i class="fa-solid fa-handshake-angle"></i></div>
+                            <span class="font-bold">Indemnizaciones</span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+                            <div class="bg-primary/20 text-primary w-10 h-10 rounded-full flex items-center justify-center"><i class="fa-solid fa-calculator"></i></div>
+                            <span class="font-bold">Liquidaciones</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Requisitos -->
+                <div class="reveal">
+                    <div class="bg-darkBg text-white p-10 rounded-3xl relative overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-primary/20 rounded-bl-full"></div>
+                        <h2 class="text-3xl font-heading font-black mb-8 relative z-10">Requisitos <span class="text-primary">Generales</span></h2>
+                        <ul class="space-y-6 relative z-10">
+                            <li class="flex items-start gap-4">
+                                <i class="fa-solid fa-id-card text-primary text-xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold">Copia de Cédula</h4>
+                                    <p class="text-sm text-gray-400">Del beneficiario del depósito.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <i class="fa-solid fa-file-pen text-primary text-xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold">Poder Firmado</h4>
+                                    <p class="text-sm text-gray-400">Otorgado por el beneficiario.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <i class="fa-solid fa-file-contract text-primary text-xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold">Contrato de Mandato</h4>
+                                    <p class="text-sm text-gray-400">A nombre de JAD como asesor.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <i class="fa-solid fa-building-columns text-primary text-xl mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold">Certificación Bancaria</h4>
+                                    <p class="text-sm text-gray-400">Documento actualizado.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. COMO FUNCIONA (Fondo Negro) -->
+    <section class="py-24 bg-darkBg relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-heading font-black text-center mb-16 reveal">¿Cómo <span class="text-gradient">Funciona?</span></h2>
+            
+            <div class="grid md:grid-cols-4 gap-8 reveal relative">
+                <!-- Linea conectora en desktop -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-white/10 -translate-y-1/2 z-0"></div>
+
+                <!-- Paso 1 -->
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div class="w-20 h-20 rounded-full bg-cardDark border-2 border-primary flex items-center justify-center text-2xl font-black mb-6 group-hover:bg-primary group-hover:text-darkBg transition-colors shadow-[0_0_20px_rgba(0,226,162,0.2)]">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Consulta Inicial</h3>
+                    <p class="text-gray-400 text-sm">Verificamos existencia de depósitos asociados a su número de identificación.</p>
+                </div>
+                <!-- Paso 2 -->
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div class="w-20 h-20 rounded-full bg-cardDark border-2 border-primary flex items-center justify-center text-2xl font-black mb-6 group-hover:bg-primary group-hover:text-darkBg transition-colors shadow-[0_0_20px_rgba(0,226,162,0.2)]">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Análisis Jurídico</h3>
+                    <p class="text-gray-400 text-sm">Revisamos el proceso y determinamos viabilidad de recuperación.</p>
+                </div>
+                <!-- Paso 3 -->
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div class="w-20 h-20 rounded-full bg-cardDark border-2 border-primary flex items-center justify-center text-2xl font-black mb-6 group-hover:bg-primary group-hover:text-darkBg transition-colors shadow-[0_0_20px_rgba(0,226,162,0.2)]">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Gestión Documental</h3>
+                    <p class="text-gray-400 text-sm">Efectuamos un contrato de servicios y remitimos la solicitud de entrega.</p>
+                </div>
+                <!-- Paso 4 -->
+                <div class="relative z-10 flex flex-col items-center text-center group">
+                    <div class="w-20 h-20 rounded-full bg-primary text-darkBg border-2 border-primary flex items-center justify-center text-2xl font-black mb-6 shadow-[0_0_30px_rgba(0,226,162,0.5)]">
+                        4
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Dinero Recuperado</h3>
+                    <p class="text-gray-400 text-sm">Realizamos el seguimiento hasta la entrega directa en la cuenta del beneficiario.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. POR QUÉ ELEGIRNOS & FAQ (Fondo Blanco) -->
+    <section id="faq" class="py-24 bg-lightBg text-darkBg">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                
+                <!-- Por qué elegirnos -->
+                <div class="reveal">
+                    <h2 class="text-3xl font-heading font-black mb-8">¿Por Qué <span class="text-primary">Elegirnos?</span></h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center gap-3">
+                            <i class="fa-solid fa-user-secret text-3xl text-primary"></i>
+                            <span class="font-bold text-sm">Confidencialidad Absoluta</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center gap-3">
+                            <i class="fa-solid fa-scale-unbalanced text-3xl text-primary"></i>
+                            <span class="font-bold text-sm">Transparencia en Honorarios</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center gap-3">
+                            <i class="fa-solid fa-users text-3xl text-primary"></i>
+                            <span class="font-bold text-sm">Atención Personalizada</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col items-center text-center gap-3">
+                            <i class="fa-solid fa-briefcase text-3xl text-primary"></i>
+                            <span class="font-bold text-sm">Experiencia Judicial</span>
+                        </div>
+                        <div class="col-span-2 bg-darkBg text-white p-6 rounded-2xl shadow-xl flex items-center gap-4 border-l-4 border-primary">
+                            <i class="fa-solid fa-award text-4xl text-primary"></i>
+                            <p class="font-bold">Pago de honorarios contra resultado, directamente fraccionado por el despacho.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Acordeón -->
+                <div class="reveal">
+                    <h2 class="text-3xl font-heading font-black mb-8">Preguntas <span class="text-primary">Frecuentes</span></h2>
+                    <div class="space-y-4">
+                        <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden" open>
+                            <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6">
+                                ¿Cuánto cuesta el servicio?
+                                <span class="transition group-open:rotate-180 text-primary">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <div class="text-gray-600 px-6 pb-6 text-sm leading-relaxed">
+                                Trabajamos bajo modalidad de honorarios del <strong>30% del dinero recuperado</strong>. El pago se realiza <strong>únicamente si el dinero es recuperado</strong>. Se efectúa mediante fraccionamiento del título y se solicita que el Juzgado realice directamente el 70% del pago al mandante (beneficiario) y el restante 30% al mandatario (JAD).
+                            </div>
+                        </details>
+
+                        <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                            <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6">
+                                ¿Cuánto tarda el proceso?
+                                <span class="transition group-open:rotate-180 text-primary">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <div class="text-gray-600 px-6 pb-6 text-sm leading-relaxed">
+                                Depende del juzgado y del estado del proceso. No se puede determinar el tiempo dado que cada Juzgado maneja sus propios procedimientos.
+                            </div>
+                        </details>
+
+                        <details class="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                            <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-6">
+                                ¿El dinero puede perderse?
+                                <span class="transition group-open:rotate-180 text-primary">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </span>
+                            </summary>
+                            <div class="text-gray-600 px-6 pb-6 text-sm leading-relaxed">
+                                Sí. Muchos de estos recursos permanecen años sin ser reclamados y algunos depósitos pueden entrar en procesos de <strong>prescripción</strong> si no se reclaman oportunamente. Por eso es importante verificar y realizar los trámites respectivos a tiempo.
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. ALERTA TRANSPARENCIA & CONTACTO (Fondo Negro) -->
+    <section id="contacto" class="py-24 bg-darkBg border-t border-white/5">
+        <div class="container mx-auto px-6">
+            
+            <!-- Banner Alerta -->
+            <div class="bg-gradient-to-r from-red-900/40 to-darkBg border border-red-500/30 rounded-3xl p-8 mb-16 text-center reveal">
+                <i class="fa-solid fa-shield-halved text-5xl text-red-400 mb-4"></i>
+                <h3 class="text-2xl font-bold text-white mb-2">Transparencia y Legalidad</h3>
+                <p class="text-xl font-bold text-red-400 uppercase tracking-wide">
+                    NO solicitamos pagos anticipados.
+                </p>
+                <p class="text-gray-300 mt-2">
+                    El pago es UNA VEZ el juzgado correspondiente ordene la devolución del dinero. Nuestro servicio se basa en revisión pública de información judicial y gestión formal conforme a la normativa colombiana.
+                </p>
+            </div>
+
+            <!-- Contacto -->
+            <div class="bg-cardDark rounded-3xl p-10 md:p-16 text-center max-w-4xl mx-auto relative overflow-hidden reveal">
+                <!-- Decoración -->
+                <div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-[80px]"></div>
+                <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/20 rounded-full blur-[80px]"></div>
+                
+                <h2 class="text-4xl font-heading font-black mb-6 relative z-10">¿Quiere saber si tiene dinero <span class="text-gradient">sin reclamar?</span></h2>
+                <p class="text-gray-400 mb-10 text-lg relative z-10">Atención en Bogotá y todo Colombia.</p>
+                
+                <div class="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-6 mb-10 relative z-10">
+                    <div class="flex items-center gap-3 bg-darkBg px-6 py-4 rounded-full border border-white/10 w-full md:w-auto">
+                        <i class="fa-brands fa-whatsapp text-2xl text-primary"></i>
+                        <span class="font-bold">+57 317 367 1746 </span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-darkBg px-6 py-4 rounded-full border border-white/10 w-full md:w-auto">
+                        <i class="fa-brands fa-whatsapp text-2xl text-primary"></i>
+                        <span class="font-bold">+57 320 916 3784 </span>
+                    </div>
+
+                    <div class="flex items-center gap-3 bg-darkBg px-6 py-4 rounded-full border border-white/10 w-full md:w-auto">
+                        <i class="fa-regular fa-envelope text-2xl text-primary"></i>
+                        <span class="font-bold">consutas@jadcolombia.com</span>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/573173671746" class="inline-block relative z-10 bg-primary text-darkBg font-black text-lg px-10 py-5 rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_10px_40px_rgba(0,226,162,0.4)] uppercase tracking-wide">
+                    👉 Consultar Ahora Si Tengo Depósitos Judiciales
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Fondo Negro / Gris Oscuro) -->
+    <footer class="bg-[#050505] pt-16 pb-8 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <h4 class="text-2xl font-heading font-black tracking-tighter text-white mb-4">
+                        JAD<span class="text-primary">.</span>
+                    </h4>
+                    <h5 class="font-bold text-primary mb-2"><i class="fa-solid fa-lock mr-2"></i> Aviso Legal</h5>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-md">
+                        Este sitio ofrece servicios de trámite ante los despachos judiciales. No somos entidad bancaria, no somos el juzgado, ni hacemos parte de la Rama Judicial; actuamos como intermediarios en la orientación y gestión de trámites para la reclamación de títulos conforme a la ley colombiana.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-white mb-4">Enlaces de Interés Normativo</h5>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li>
+                            <a href="https://www.ramajudicial.gov.co/web/unidad-de-presupuesto/depositos-judiciales-ley-1743" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors flex items-start gap-2">
+                                <i class="fa-solid fa-arrow-up-right-from-square mt-1 text-xs"></i> 
+                                Normatividad vigente en Depósitos Judiciales (Rama Judicial)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://legalplanners.co/blog/f/los-dep%C3%B3sitos-judiciales-en-colombia-y-su-prescripci%C3%B3n" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors flex items-start gap-2">
+                                <i class="fa-solid fa-arrow-up-right-from-square mt-1 text-xs"></i> 
+                                Los depósitos judiciales en Colombia y su prescripción
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.bancoagrario.gov.co/depositos-judiciales" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors flex items-start gap-2">
+                                <i class="fa-solid fa-arrow-up-right-from-square mt-1 text-xs"></i> 
+                                Depósitos Judiciales Banco Agrario de Colombia
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center text-gray-600 text-sm pt-8 border-t border-white/5">
+                &copy; 2024 Centro de Soluciones Financieras y Tecnológicas JAD. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Simple para Animaciones -->
+    <script>
+        // Animación de aparición al hacer scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100; // Punto de quiebre
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Llamar una vez para los elementos ya visibles en pantalla inicial
+        reveal();
+    </script>
+</body>
 </html>
